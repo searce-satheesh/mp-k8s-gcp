@@ -1,0 +1,44 @@
+x-google-marketplace:
+  schemaVersion: v2
+
+  applicationApiVersion: v1beta1
+
+  publishedVersion: '1.0.1'
+  publishedVersionMetadata:
+    releaseNote: >-
+      Initial Release of Test product
+    releaseTypes:
+      - Feature
+    recommended: false
+
+  images:
+    nginx:
+      properties:
+        repository:
+          type: FULL
+  # clusterConstraints:
+  #   resources:
+  #   - replicas: 6
+  #     requests:
+  #       memory: 16Gi
+  #       cpu: 4
+
+properties:
+  name:                   
+    type: string
+    x-google-marketplace:
+      type: NAME
+  namespace:              
+    type: string
+    default: default
+    x-google-marketplace:
+      type: NAMESPACE
+  userInput:
+    type: string
+    title: Sample user input
+    description: Sample input to be added by end user by deploying the application.
+
+
+required:
+- name
+- namespace

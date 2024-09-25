@@ -1,0 +1,4 @@
+properties:
+  userInput: 
+    type: string
+    default: "Welcome Searce!"

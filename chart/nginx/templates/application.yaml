@@ -1,0 +1,32 @@
+apiVersion: app.k8s.io/v1beta1
+kind: Application
+metadata:
+  name: "{{ .Release.Name }}"
+  annotations:
+    marketplace.cloud.google.com/deploy-info: '{"partner_id": "searce", "product_id": "test-product", "partner_name": "searce"}'
+  labels:
+    app.kubernetes.io/name: "{{ .Release.Name }}"
+spec:
+  descriptor:
+    type: "Searce"
+    version: '1.0.1'
+    description: |-
+        Test product
+    maintainers:
+    - name: Searce
+      url: https://searce.com 
+    links:
+    - description: 'Searce Website'
+      url: https://searce.com
+    notes: |-
+            
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: "{{ .Release.Name }}"
+  componentKinds:
+  - group: apps/v1
+    kind: Deployment
+  - group: v1
+    kind: ConfigMap
+  - group: v1
+    kind: Service

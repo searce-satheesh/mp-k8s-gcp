@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "nginx.fullname" . }}
+  labels:
+    app.kubernetes.io/name: "{{ .Release.Name }}"
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "nginx.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "nginx.selectorLabels" . | nindent 8 }}
+    spec:
+      volumes:
+      - name: nginx-config
+        configMap:
+          name: nginx-configmap
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ .Values.image.repository }}
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          volumeMounts:
+          - name: nginx-config
+            mountPath: /usr/share/nginx/html
