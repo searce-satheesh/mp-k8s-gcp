@@ -11,11 +11,11 @@ x-google-marketplace:
       - Feature
     recommended: false
 
-  images:
-    nginx:
-      properties:
-        repository:
-          type: FULL
+  images: 
+    image:
+      registry: docker.io
+      repository: bitnami/wordpress
+      tag: 5.3.2
   # clusterConstraints:
   #   resources:
   #   - replicas: 6

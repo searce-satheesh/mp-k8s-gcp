@@ -4,8 +4,8 @@
 
 replicaCount: 1
 
-image:
-  repository: us-central1-docker.pkg.dev/searce-cloud-products/gcf-artifacts/hello-docker:latest
+# image: 
+#   repository: us-docker.pkg.dev/searce-cloud-products/k8s-test-mp/nginx:latest
 
 service:
   type: LoadBalancer
