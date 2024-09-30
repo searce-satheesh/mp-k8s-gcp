@@ -11,10 +11,14 @@ x-google-marketplace:
       - Feature
     recommended: false
 
-  images: 
+  images:
+  nginx:
     properties:
-      image.repository:
-        type: FULL
+      image:
+        repository:
+          type: string
+          description: The full path to the Docker image repository
+          default: "us-docker.pkg.dev/searce-cloud-products/k8s-test-mp/nginx:latest"
   # clusterConstraints:
   #   resources:
   #   - replicas: 6
