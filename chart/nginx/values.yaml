@@ -4,8 +4,8 @@
 
 replicaCount: 1
 
-# image: 
-#   repository: us-docker.pkg.dev/searce-cloud-products/k8s-test-mp/nginx:latest
+image: 
+  repository: us-docker.pkg.dev/searce-cloud-products/k8s-test-mp/nginx:latest
 
 service:
   type: LoadBalancer
