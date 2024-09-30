@@ -10,16 +10,15 @@ x-google-marketplace:
     recommended: false
 
   images:
-    - name: nginx
-      properties:
-        repository:
-          type: string
-          description: The Docker image repository for nginx
-          default: "us-docker.pkg.dev/searce-cloud-products/k8s-test-mp/nginx"
-        tag:
-          type: string
-          description: The Docker image tag for nginx
-          default: "latest"
+    nginx:
+      repository:
+        type: string
+        description: The Docker image repository for nginx
+        default: "us-docker.pkg.dev/searce-cloud-products/k8s-test-mp/nginx"
+      tag:
+        type: string
+        description: The Docker image tag for nginx
+        default: "latest"
 
 properties:
   name:                   
